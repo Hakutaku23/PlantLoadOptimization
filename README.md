@@ -131,11 +131,19 @@ python main.py
 - **参数调整**：根据实际运行情况调整优化算法参数
 - **系统监控**：定期检查系统运行状态和日志，确保系统稳定运行
 
+## 许可证
+
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+
 ## 联系方式
 
-- 开发团队：PSELAB ChongQing China
-- 项目地址：e:\深科先创\工作\防城港电厂\fanggang_new
+- 项目维护者: Hakutaku23
+- 邮箱: [y1486483811@email.swu.edu.cn](mailto:y1486483811@email.swu.edu.cn)
+
+## 致谢
+
+感谢所有为项目做出贡献的开发者和研究人员！
 
 ---
 
-本系统采用先进的机器学习和优化算法，为电厂变负荷调节提供智能化解决方案，有助于提高电厂运行效率和经济性。
+*Created By Hakutaku23. PSELAB Chongqing China. All rights reserved.*
