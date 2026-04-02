@@ -24,7 +24,7 @@
 ## 项目结构
 
 ```
-fanggang_new/
+fanggang/
 ├── config/             # 配置文件目录
 │   └── config.yaml     # 系统配置
 ├── models/             # 模型文件目录
@@ -58,7 +58,7 @@ fanggang_new/
 
 ### 环境要求
 
-- Python 3.7+
+- Python 3.12+
 - Redis 6.0+
 - TDengine 3.0+
 
