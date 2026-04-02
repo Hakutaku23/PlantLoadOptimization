@@ -1,0 +1,104 @@
+data:
+  path: "./data.csv"
+  x:
+    - "30HFB00AA101DSP"
+    - "ture_coal_fuel"
+    - "30GAMD"
+    - "30O2"
+    - "30LAB30CF900ALL"
+    - "FLOWC_CO"
+    - "11DTP"
+    - "30HLA10CP101"
+    - "30HLA10CP102"
+    - "30HLA20CP101"
+    - "30HLA20CP102"
+    - "3IPAB"
+    - "SELFURNP"
+    - "3OVERHEAT"
+  y:
+    - "11DMW"
+  oprimize:
+    - "S0CKS01GH1CA03"
+    - "3LOAD-RATE-SET"
+  namespace: "DCS3"
+model:
+  input_dim: 14
+  output_dim: 1
+  hidden_layers: 
+    - 128
+    - 64
+  test_size: 0.2
+  path: "models"
+  type: "onnx" # torch或onnx
+  training:
+    batch_size: 128
+    learning_rate: 1e-3
+    weight_decay: 0.00001
+    epochs: 500
+    patience: 15
+    min_delta: 1e-4
+windows: 
+  size: 30 # 滤波窗口大小
+  ttl: 30 # 临时窗口过期时间
+optimize:
+  iters: 25
+  size: 5
+  interval: 60
+  params:
+    - "30HFB00AA101DSP"
+    - "30GAMD"
+    - "30O2"
+    - "30LAB30CF900ALL"
+    - "11DTP"
+    - "30HLA10CP101"
+    - "30HLA10CP102"
+    - "30HLA20CP101"
+    - "30HLA20CP102"
+    # - "3IPAB"
+    - "3OVERHEAT"
+  target:
+    load_regulation_rate: "3LOAD-RATE-SET"
+    target_load: "S0CKS01GH1CA03"
+    currect_load: "11DMW"
+  bounds_persent: 0.1
+seed: 42
+env: "debug"
+scheduler:
+  global:
+    thread: 12
+    process: 10
+    coalesce: false
+    max_instances: 2
+  tasks:
+    system: 1
+    realtime: 1
+redis:
+  host: "172.17.16.81"
+  port: 6379
+  password: 'Xzl202402!'
+  db: 0
+  max_retries: 3
+  retry_delay: 2
+taos:
+  url: "http://172.17.16.81:6041"
+  username: "root"
+  password: "taosdata"
+  database: "fcg_data"
+  table_name: "monitor_data_history"
+logger:
+  path: "logs"
+  app:
+    rotation_type: "time"
+    when: "D"
+    interval: 7
+    backup_count: 4
+    level: "info"
+  api:
+    rotation_type: "size"
+    max_bytes: 10
+    backup_count: 4
+    level: "info"
+fastapi:
+  host: "0.0.0.0"
+  port: 8012
+  workers: 4

@@ -1,0 +1,16 @@
+apscheduler
+numpy
+pandas 
+matplotlib
+seaborn
+zhplot
+scikit-learn
+onnx
+onnxruntime
+redis
+taospy
+bayesian-optimization
+fastapi
+uvicorn
+pyyaml
+psutil

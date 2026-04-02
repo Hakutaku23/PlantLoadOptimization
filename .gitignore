@@ -1,0 +1,5 @@
+*.csv
+models/
+.vscode/
+__pycache__/
+clean_cache.py
